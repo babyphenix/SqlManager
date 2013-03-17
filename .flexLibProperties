@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flexLibProperties version="1">
+<includeClasses>
+<classEntry path="dfv.common.sqlite.defin.SqlOperation"/>
+<classEntry path="dfv.common.sqlite.manager.SqlManager"/>
+<classEntry path="dfv.common.sqlite.defin.ErrorMessage"/>
+<classEntry path="dfv.common.sqlite.manager.impl.SqlManagerImpl"/>
+<classEntry path="dfv.common.sqlite.helper.MappingHelper"/>
+<classEntry path="dfv.common.sqlite.manager.SqlUpdate"/>
+<classEntry path="dfv.common.sqlite.exception.AbstractServiceException"/>
+<classEntry path="dfv.common.sqlite.defin.Annotation"/>
+<classEntry path="dfv.common.sqlite.exception.AnnotationException"/>
+<classEntry path="dfv.common.sqlite.manager.SqlSequecer"/>
+<classEntry path="dfv.common.sqlite.exception.NonUniqueResultException"/>
+<classEntry path="dfv.common.sqlite.register.Register"/>
+<classEntry path="dfv.common.sqlite.service.IAbstractService"/>
+<classEntry path="dfv.common.sqlite.bean.Table"/>
+<classEntry path="dfv.common.sqlite.manager.SqlSelect"/>
+</includeClasses>
+<includeResources/>
+<namespaceManifests/>
+</flexLibProperties>

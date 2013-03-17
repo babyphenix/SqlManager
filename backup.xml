@@ -1,0 +1,27 @@
+<project name="backup" default="do">
+
+
+	<property name="src" value="C:\workspace\SqlManager" />
+	<property name="dest" value="C:/BACKUP/project/SqlManager" />
+
+	<!-- ================================= 
+          target: do              
+         ================================= -->
+	<target name="do">
+		<delete dir="${dest}" />
+
+		<copy todir="${dest}" overwrite="true">
+			<fileset dir="${src}" casesensitive="false">
+				<exclude name="/work/**/*.*" />
+				<exclude name="/build/**/*.*" />
+				<exclude name="/lib/**/*.*" />
+				<exclude name="/webapp/client/**/*.*" />
+				<exclude name="/webapp/WEB-INF/classes/**/*.*" />
+				<exclude name="/webapp/WEB-INF/data/**/*.*" />
+				<exclude name="/webapp/WEB-INF/lib/**/*.*" />
+			</fileset>
+		</copy>
+	</target>
+
+
+</project>

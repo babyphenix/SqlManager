@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="build.airlib" basedir="." default="build SWC">
+
+	<property file="build.local.properties" />
+	<property name="src.dir" value="${basedir}/src" />
+	<property name="target.dir" value="target" />
+	<property name="lib.name" value="AirLib.swc" />
+
+	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
+	<!-- =================================
+		target: build SWC
+	================================= -->
+	<target name="build SWC" depends="clean">
+		<fileset dir="${src.dir}" id="src.files">
+			<include name="**/**" />
+		</fileset>
+		<echo message="${src.files}" />
+		<pathconvert property="evaFramework_classes" pathsep=" " dirsep="." refid="src.files">
+			<map from="\" to="/" />
+			<map from="${src.dir}/" to="" />
+			<mapper>
+				<chainedmapper>
+					<globmapper from="*.as" to="*" />
+				</chainedmapper>
+			</mapper>
+		</pathconvert>
+		<echo message="${evaFramework_classes}" />
+
+		<compc output="${target.dir}/${lib.name}" include-classes="${evaFramework_classes}" locale="ja_JP">
+			<source-path path-element="${src.dir}" />
+			<strict>true</strict>
+			<warnings>true</warnings>
+			<load-config filename="${FLEX_HOME}/frameworks/air-config.xml"/>
+			<load-config filename="${src.dir}/orm-config.xml" />
+		</compc>
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - -
+          target: clean
+         - - - - - - - - - - - - - - - - - -->
+	<target name="clean">
+		<delete dir="${target.dir}/${lib.name}" />
+	</target>
+
+</project>
